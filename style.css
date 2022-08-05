@@ -1,6 +1,4 @@
-*,
-*::after,
-*::before {
+*, *::after, *::before {
   box-sizing: border-box;
   font-family: Arial;
 }
@@ -12,14 +10,14 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 1em;
-  font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+  font-size: clamp(.5rem, 2.5vmin, 1.5rem);
 }
 
 .keyboard {
   display: grid;
   grid-template-columns: repeat(20, minmax(auto, 1.25em));
   grid-auto-rows: 3em;
-  gap: 0.25em;
+  gap: .25em;
   justify-content: center;
 }
 
@@ -39,7 +37,7 @@ body {
   color: white;
   fill: white;
   text-transform: uppercase;
-  border-radius: 0.25em;
+  border-radius: .25em;
   cursor: pointer;
   user-select: none;
 }
@@ -53,28 +51,10 @@ body {
   height: 1.75em;
 }
 
-.key:hover,
-.key:focus {
+.key:hover, .key:focus {
   --lightness-offset: 10%;
-}
-
-.key:hover,
-.key:focus {
-  --lightness: 10%;
 }
 
 .key.wrong {
   --lightness: 23%;
-}
-
-.key.wrong-location {
-  --hue: 49;
-  --saturation: 51%;
-  --lightness: 47%;
-}
-
-.key.correct {
-  --hue: 115;
-  --saturation: 29%;
-  --lightness: 43%;
 }
