@@ -15290,6 +15290,13 @@ const targetWords = [
   "shave",
 ];
 
+const guessGrid = document.querySelector("[data-guess-grid]");
+const WORD_LENGTH = 5;
+const offSetFromDate = new Date(2022, 7, 1);
+const msOffSet = Date.now() - offSetFromDate;
+const dayOffSet = msOffSet / 1000 / 60 / 60 / 24;
+const targetWord = targetWords[Math.floor(dayOffSet)];
+
 startTyping();
 
 function startTyping() {
@@ -15334,3 +15341,29 @@ function stopTyping() {
   document.removeEventListener("keydown", handleKeyPress);
 }
 
+function pressKey(key) {
+  const activeTiles = getActiveTiles();
+  if (activeTiles.length >= WORD_LENGTH) return;
+  const nextTile = guessGrid.querySelector(":not([data-letter])");
+  nextTile.dataset.letter = key.toLowerCase();
+  nextTile.textContent = key;
+  nextTile.dataset.state = "active";
+}
+
+function deleteKey() {
+  const activeTiles = getActiveTiles();
+  const lastTile = activeTiles[activeTiles.length - 1];
+  if (lastTile == null) return;
+  lastTile.textContent = "";
+  delete lastTile.dataset.state;
+  delete lastTile.dataset.letter;
+}
+
+function submitGuess() {
+const activeTiles = [...getActiveTiles()]
+
+}
+
+function getActiveTiles() {
+  return guessGrid.querySelectorAll('[data-state="active"]');
+}
