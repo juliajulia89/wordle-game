@@ -15292,10 +15292,14 @@ const targetWords = [
 
 const guessGrid = document.querySelector("[data-guess-grid]");
 const WORD_LENGTH = 5;
+const FLIP_ANIMATION_DURATION = 500;
+const DANCE_ANIMATION_DURATION = 500;
 const offSetFromDate = new Date(2022, 7, 1);
 const msOffSet = Date.now() - offSetFromDate;
 const dayOffSet = msOffSet / 1000 / 60 / 60 / 24;
 const targetWord = targetWords[Math.floor(dayOffSet)];
+const keyboard = document.querySelector("[data-keyboard]");
+const alertContainer = document.querySelector("[data-alert-container]");
 
 startTyping();
 
@@ -15361,6 +15365,11 @@ function deleteKey() {
 
 function submitGuess() {
 const activeTiles = [...getActiveTiles()]
+if (activeTiles.lenght !== WORD_LENGTH) {
+    showAlert("Not enough letters!")
+    shakeAlert(activeTiles)
+    return
+}
 
 }
 
