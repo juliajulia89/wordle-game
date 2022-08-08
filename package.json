@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "private": "true",
   "description": "New York Times wordle clone",
-  "source": "src/index.html",
+  "source": "index.html",
   "scripts": {
     "start": "parcel",
     "build": "parcel build"
